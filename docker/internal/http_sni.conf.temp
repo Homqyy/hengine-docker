@@ -1,0 +1,22 @@
+    server {
+        listen ${NGX_HTTP_LISTEN} default_server;
+        ssl_reject_handshake on;
+
+        access_log logs/access.log https;
+
+        ${NGX_HTTP_SSL_CERT}          # ssl_certificate <path>
+        ${NGX_HTTP_SSL_KEY}           # ssl_certificate_key <path>
+        ${NGX_HTTP_SSL_CIPHERS}       # ssl_cipehrs <openssl_strings>
+
+        ${NGX_HTTP_SSL_VERIFY_CLIENT} # ssl_verify_client <on | off | optional | optional_no_ca>
+        ${NGX_HTTP_SSL_VERIFY_DEPTH}  # ssl_verify_depth <number>
+        ${NGX_HTTP_SSL_CA}            # ssl_client_certificate <path>
+
+        enable_ntls  ${NGX_HTTP_NTLS}; # <on | off>
+        ${NGX_HTTP_SSL_SIGN_CERT}      # ssl_sign_certificate <path>
+        ${NGX_HTTP_SSL_SIGN_KEY}       # ssl_sign_certificate_key <path>
+        ${NGX_HTTP_SSL_ENC_CERT}       # ssl_enc_certificate <path>
+        ${NGX_HTTP_SSL_ENC_KEY}        # ssl_enc_certificate_key <path>
+
+        ssl_prefer_server_ciphers on;
+    }

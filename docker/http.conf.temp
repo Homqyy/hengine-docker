@@ -1,0 +1,49 @@
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+
+    lua_package_path "/usr/local/hengine/lib/lua/?.lua;;";
+
+    sendfile        on;
+    keepalive_timeout  65;
+
+    log_format https     '$remote_addr:$remote_port $request > $server_name:$server_port $status '
+                         '- $ssl_session_id [$ssl_server_name|$ssl_cipher|$ssl_protocol|$ssl_session_reused]';
+
+    include http.conf.d/*.conf;
+
+    server {
+        listen       ${NGX_HTTP_LISTEN};
+        server_name  ${NGX_HTTP_SERVER_NAME};
+
+        access_log logs/access.log https;
+
+        ${NGX_HTTP_SSL_CERT}          # ssl_certificate <path>
+        ${NGX_HTTP_SSL_KEY}           # ssl_certificate_key <path>
+        ${NGX_HTTP_SSL_CIPHERS}       # ssl_cipehrs <openssl_strings>
+
+        ${NGX_HTTP_SSL_VERIFY_CLIENT} # ssl_verify_client <on | off | optional | optional_no_ca>
+        ${NGX_HTTP_SSL_VERIFY_DEPTH}  # ssl_verify_depth <number>
+        ${NGX_HTTP_SSL_CA}            # ssl_client_certificate <path>
+
+        enable_ntls  ${NGX_HTTP_NTLS}; # <on | off>
+        ${NGX_HTTP_SSL_SIGN_CERT}      # ssl_sign_certificate <path>
+        ${NGX_HTTP_SSL_SIGN_KEY}       # ssl_sign_certificate_key <path>
+        ${NGX_HTTP_SSL_ENC_CERT}       # ssl_enc_certificate <path>
+        ${NGX_HTTP_SSL_ENC_KEY}        # ssl_enc_certificate_key <path>
+
+        ssl_prefer_server_ciphers on;
+        
+        location / {
+            root   html;
+            index  index.html index.htm;
+        }
+
+        # redirect server error pages to the static page /50x.html
+        #
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+            root   html;
+        }
+    }
+}

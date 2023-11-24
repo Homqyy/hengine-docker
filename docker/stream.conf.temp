@@ -1,0 +1,3 @@
+stream {
+    include stream.conf.d/*.conf;
+}
