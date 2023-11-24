@@ -1,5 +1,22 @@
 # Hengine Docker
 
+## 版本说明
+
+3.0（latest）：
+    - 参考：[hengine-docker](https://github.com/Homqyy/hengine-docker)
+
+2.0（弃用）：
+
+- 启用选项：`--with-stream_sni`
+- 支持协议转换：`tcp`、`udp`和`udp+kcp`三者间的任意转换
+- 支持 KCP 代理
+
+- 解决Bug：
+    - PROXY CONNECT的时候，`realm`的值是错误的
+
+1.0（弃用）：
+    - 支持 PROXY CONNECT 使用 Basic 认证
+
 ## 介绍
 
 Hengine Docker 是一个基于 Docker 的 Hengine 镜像，除了有Hengine本身的功能外，还集成了一些额外功能，可用于快速部署 Hengine 服务。
