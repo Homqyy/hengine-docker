@@ -16,7 +16,8 @@
     - PROXY CONNECT的时候，`realm`的值是错误的
 
 1.0（弃用）：
-    - 支持 PROXY CONNECT 使用 Basic 认证
+
+- 支持 PROXY CONNECT 使用 Basic 认证
 
 ## 介绍
 

@@ -18,7 +18,8 @@ For Chinese, please refer to [README-zh.md](README-zh.md)
     - When using PROXY CONNECT, the value of `realm` was incorrect
 
 1.0 (Deprecated):
-    - Support for using Basic authentication with PROXY CONNECT
+
+- Support for using Basic authentication with PROXY CONNECT
 
 ## Introduction
 
