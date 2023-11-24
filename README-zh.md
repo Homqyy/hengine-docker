@@ -21,7 +21,7 @@
 
 ## 介绍
 
-Hengine Docker 是一个基于 Docker 的 Hengine 镜像，除了有Hengine本身的功能外，还集成了一些额外功能，可用于快速部署 Hengine 服务。
+[homqyy/hengine](https://hub.docker.com/r/homqyy/hengine)是一个web全家桶镜像，将Nginx、国密、Lua合为一体，方面满足各种业务需求；同时支持环境变量配置，可用于快速部署Web服务；并且支持配置模板，增加扩展性，方便懂Nginx的人去配置自己的服务。
 
 它支持以下特性：
 
@@ -230,7 +230,7 @@ services:
 
 模板配置是该镜像的一个特色，它可以方便懂`Nginx`的人去配置自己的服务，同时还原生支持了以`NGX_`为前缀环境变量，接下来我们对上述两点进行解释。
 
-### 模板配置
+### HTTP模板配置
 
 在该镜像中，指定`http`块`{}`下的配置被放置在`/usr/local/hengine/conf/http.conf.d/`目录中，只要是放置在该目录中并且以`.conf`结尾的配置文件都会被当成`http {}`下的配置去解析，因此我们如下做：
 
@@ -293,6 +293,10 @@ services:
 3. 运行容器：会发现自己的配置将被解析
 
 4. 用客户端访问 `9090` 端口
+
+### Stream模板配置
+
+Stream配置模板同理，区别在于它的路径为`/usr/local/hengine/conf/stream.conf.d/`
 
 ## 加密套件列表
 

@@ -23,7 +23,7 @@ For Chinese, please refer to [README-zh.md](README-zh.md)
 
 ## Introduction
 
-Hengine Docker is a Docker-based Hengine image that, in addition to the functionalities of Hengine itself, integrates some additional features for quick deployment of Hengine services.
+[homqyy/hengine](https://hub.docker.com/r/homqyy/hengine) is a web full-family image that combines Nginx, Guomi, and Lua into one, which is convenient to meet various business needs; it also supports environment variable configuration, which can be used to quickly deploy web services; and supports configuration templates to increase extensibility and facilitate people who know Nginx to configure their own services.
 
 It supports the following features:
 
@@ -234,7 +234,7 @@ services:
 
 Template configuration is a feature of this image. It facilitates people familiar with `Nginx` to configure their own services while natively supporting environment variables prefixed with `NGX_`. Let's explain the above two points.
 
-### Template Configuration
+### HTTP Template Configuration
 
 In this image, the configuration specified under the `http` block `{}` is placed in the `/usr/local/hengine/conf/http.conf.d/` directory. Any configuration file placed in this directory and ending with `.conf` will be parsed as a configuration under `http {}`. Therefore, we do the following:
 
@@ -297,6 +297,10 @@ But how is this considered a template? This is where environment variables come 
 3. Run the container: Your configuration will be parsed.
 
 4. Access the `9090` port using a client.
+
+### Stream Tempalte Configuration
+
+Stream template configuration is the same, the difference is that its path is `/usr/local/hengine/conf/stream.conf.d/`
 
 ## Supported Cipher Suites List
 
