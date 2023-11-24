@@ -152,7 +152,7 @@ services:
       NGX_LOG_LEVEL: info
       NGX_HTTP_LISTEN: '443 ssl'
       NGX_HTTP_SNI: on
-      NGX_HTTP_SERVER_NAME: https.dev.example.com
+      NGX_HTTP_SERVER_NAME: gm.dev.example.com
       NGX_HTTP_NTLS: on
       NGX_HTTP_SSL_SIGN_CERT: certs/gm.dev.homqyy.cn/gm/chain.pem
       NGX_HTTP_SSL_SIGN_KEY: certs/gm.dev.homqyy.cn/gm/privkey.pem
@@ -208,14 +208,14 @@ services:
       NGX_LOG_LEVEL: info
       NGX_HTTP_LISTEN: '443 ssl'
       NGX_HTTP_SNI: on
-      NGX_HTTP_SERVER_NAME: server.example.com
+      NGX_HTTP_SERVER_NAME: gm.dev.example.com
       NGX_HTTP_NTLS: on
-      NGX_HTTP_SSL_SIGN_CERT: certs/servers/gm.dev.homqyy.cn/gm/chain.pem
-      NGX_HTTP_SSL_SIGN_KEY: certs/servers/gm.dev.homqyy.cn/gm/privkey.pem
-      NGX_HTTP_SSL_ENC_CERT: certs/servers/gm.dev.homqyy.cn/gm/enc-chain.pem
-      NGX_HTTP_SSL_ENC_KEY: certs/servers/gm.dev.homqyy.cn/gm/enc-privkey.pem
-      NGX_HTTP_SSL_CERT: certs/servers/gm.dev.homqyy.cn/rsa/chain.pem
-      NGX_HTTP_SSL_KEY: certs/servers/gm.dev.homqyy.cn/rsa/privkey.pem
+      NGX_HTTP_SSL_SIGN_CERT: certs/gm.dev.homqyy.cn/gm/chain.pem
+      NGX_HTTP_SSL_SIGN_KEY: certs/gm.dev.homqyy.cn/gm/privkey.pem
+      NGX_HTTP_SSL_ENC_CERT: certs/gm.dev.homqyy.cn/gm/enc-chain.pem
+      NGX_HTTP_SSL_ENC_KEY: certs/gm.dev.homqyy.cn/gm/enc-privkey.pem
+      NGX_HTTP_SSL_CERT: certs/gm.dev.homqyy.cn/rsa/chain.pem
+      NGX_HTTP_SSL_KEY: certs/gm.dev.homqyy.cn/rsa/privkey.pem
       NGX_HTTP_SSL_CIPHERS: ECC-SM2-SM4-CBC-SM3:AES256-SHA
       NGX_HTTP_SSL_VERIFY_CLIENT: off
       NGX_HTTP_SSL_VERIFY_DEPTH: 3
