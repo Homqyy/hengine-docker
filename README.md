@@ -5,7 +5,8 @@ For Chinese, please refer to [README-zh.md](README-zh.md)
 ## Version Description
 
 3.0 (latest):
-    - Reference: [hengine-docker](https://github.com/Homqyy/hengine-docker)
+
+- Reference: [hengine-docker](https://github.com/Homqyy/hengine-docker)
 
 2.0 (Deprecated):
 

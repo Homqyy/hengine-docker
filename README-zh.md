@@ -3,7 +3,8 @@
 ## 版本说明
 
 3.0（latest）：
-    - 参考：[hengine-docker](https://github.com/Homqyy/hengine-docker)
+
+- 参考：[hengine-docker](https://github.com/Homqyy/hengine-docker)
 
 2.0（弃用）：
 
