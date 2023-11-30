@@ -108,6 +108,8 @@ function init_ssl
 
     if [ "$NGX_HTTP_SNI" == 'on' ]; then
         cp $g_conf/internal/http_sni.conf.temp $g_http_conf
+    else [ "$NGX_HTTP_SNI" == 'off' ]
+        # do nothing
     elif [ -n "$NGX_HTTP_SNI" ]; then
         echo "NGX_HTTP_SNI have a invalid value: $NGX_HTTP_SNI"
         exit 1
