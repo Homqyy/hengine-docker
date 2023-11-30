@@ -21,7 +21,7 @@
 
 ## 介绍
 
-[homqyy/hengine](https://hub.docker.com/r/homqyy/hengine)是一个web全家桶镜像，将Nginx、国密、Lua合为一体，方面满足各种业务需求；同时支持环境变量配置，可用于快速部署Web服务；并且支持配置模板，增加扩展性，方便懂Nginx的人去配置自己的服务。
+[homqyy/hengine](https://hub.docker.com/r/homqyy/hengine)是一个web全家桶镜像，将Nginx、国密、Lua合为一体，方便满足各种业务需求；同时支持环境变量配置，可用于快速部署Web服务；并且支持配置模板，增加扩展性，方便懂Nginx的人去配置自己的服务。
 
 它支持以下特性：
 
