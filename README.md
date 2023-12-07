@@ -2,24 +2,33 @@
 
 For Chinese, please refer to [README-zh.md](README-zh.md)
 
-## Version Description
+## Version Notes
 
-3.0 (latest):
+**3.1 (latest)**:
 
-- Reference: [hengine-docker](https://github.com/Homqyy/hengine-docker)
+* Reference: hengine-docker: [https://github.com/Homqyy/hengine-docker](https://github.com/Homqyy/hengine-docker)
+* Features:
+    * Supports controlling whether to enable the basic HTTP service using the `NGX_HTTP_WEB <on|off>` environment variable, the default value is `on`.
+* Bug list:
+    * `entrypoint.sh` syntax error
+    * Missing modules `ngx_http_sub_module` and `ngx_http_proxy_connect_module` 
 
-2.0 (Deprecated):
+**3.0**:
 
-- Enabled option: `--with-stream_sni`
-- Support for protocol conversion: arbitrary conversion between `tcp`, `udp`, and `udp+kcp`
-- Support for KCP proxy
+* Bug list:
+    * An error occurs when `NGX_HTTP_SNI` is set to `off` (fixed in `latest`)
 
-- Bug Fixes:
-    - When using PROXY CONNECT, the value of `realm` was incorrect
+**2.0 (deprecated)**:
 
-1.0 (Deprecated):
+* Enable options: `--with-stream_sni`
+* Supports protocol conversion: any conversion between `tcp`, `udp`, and `udp+kcp`
+* Supports KCP proxy
+* Bug fixes:
+    * The value of `realm` is incorrect when using PROXY CONNECT
 
-- Support for using Basic authentication with PROXY CONNECT
+**1.0 (deprecated)**:
+
+* Supports using Basic authentication for PROXY CONNECT
 
 ## Introduction
 
@@ -33,6 +42,10 @@ It supports the following features:
 - [x] Configuration Templates
 
 ## Usage
+
+Web servers are a common requirement, so this image supports a basic web server by default. This can be controlled using environment variables. Advanced users may want to define their own web server, so the image also supports controlling whether the basic web server is enabled using the `NGX_HTTP_WEB` environment variable.
+
+* `NGX_HTTP_WEB <on|off>`: Whether to enable the basic web server. The default value is `on`. If set to `off`, the basic web server will not be enabled. In this case, the HTTP and HTTPS related environment variables mentioned below will not take effect.
 
 ### Deploying an HTTP Server
 

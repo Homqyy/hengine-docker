@@ -9,6 +9,7 @@ g_stream_conf=$g_conf/http.conf.d
 export NGX_LOG_LEVEL=${NGX_LOG_LEVEL:-error}
 export NGX_HTTP_LISTEN=${NGX_HTTP_LISTEN:-80}
 export NGX_HTTP_SERVER_NAME=${NGX_HTTP_SERVER_NAME:-localhost}
+export NGX_HTTP_WEB=${NGX_HTTP_WEB:-on}
 
 
 ################################## Function
@@ -63,6 +64,24 @@ function subenv
     subspec 'temp'
 }
 
+function active_internal
+{
+    name=$1
+    flag=$2
+
+    if [ "$flag" == 'on' ]; then
+        cp $g_conf/internal/$name.conf.temp $g_http_conf
+    elif [ "$flag" == 'off' ]; then
+        # do nothing
+        echo "do nothing" > /dev/null
+    elif [ -n "$flag" ]; then
+        echo "$name have a invalid value: $flag"
+        return 1
+    fi
+
+    return 0
+}
+
 function init_ssl
 {
     # set default value
@@ -106,14 +125,8 @@ function init_ssl
     [ -n "$NGX_HTTP_SSL_CA" ] \
         && NGX_HTTP_SSL_CA="ssl_client_certificate $NGX_HTTP_SSL_CA;"
 
-    if [ "$NGX_HTTP_SNI" == 'on' ]; then
-        cp $g_conf/internal/http_sni.conf.temp $g_http_conf
-    else [ "$NGX_HTTP_SNI" == 'off' ]
-        # do nothing
-    elif [ -n "$NGX_HTTP_SNI" ]; then
-        echo "NGX_HTTP_SNI have a invalid value: $NGX_HTTP_SNI"
-        exit 1
-    fi
+    active_internal "http_web" "$NGX_HTTP_WEB"
+    active_internal "http_sni" "$NGX_HTTP_SNI"
 
     # export NGX_*
     export NGX_HTTP_SSL_CIPHERS
@@ -130,6 +143,7 @@ function init_ssl
     export NGX_HTTP_SSL_VERIFY_DEPTH
     export NGX_HTTP_SSL_CA
 
+    export NGX_HTTP_WEB
     export NGX_HTTP_SNI
 }
 
@@ -156,7 +170,11 @@ then
     touch /usr/local/hengine/logs/access.log
     tail -f /usr/local/hengine/logs/access.log &
     
-    echo "running on ${NGX_HTTP_LISTEN} as $ngx_pid"
+    if [ ${NGX_HTTP_WEB} == 'on' ]; then
+        echo "running on ${NGX_HTTP_LISTEN} as $ngx_pid"
+    else
+        echo "running as $ngx_pid"
+    fi
     
     wait $ngx_pid
 else

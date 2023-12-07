@@ -2,11 +2,21 @@
 
 ## 版本说明
 
-3.0（latest）：
+**3.1（latest）**：
 
 - 参考：[hengine-docker](https://github.com/Homqyy/hengine-docker)
+- 特性：
+    - 支持用`NGX_HTTP_WEB <on|off>`控制是否激活基础的HTTP服务，默认值为`on`；
+- Bug 列表：
+    - `entrypoint.sh`语法错误
+    - 缺少模块`ngx_http_sub_module`和`ngx_http_proxy_connect_module`
 
-2.0（弃用）：
+**3.0**：
+
+- Bug 列表：
+    - `NGX_HTTP_SNI` 设置 `off` 会报错（`latest`已解决）
+
+**2.0（弃用）**：
 
 - 启用选项：`--with-stream_sni`
 - 支持协议转换：`tcp`、`udp`和`udp+kcp`三者间的任意转换
@@ -15,7 +25,7 @@
 - 解决Bug：
     - PROXY CONNECT的时候，`realm`的值是错误的
 
-1.0（弃用）：
+**1.0（弃用）**：
 
 - 支持 PROXY CONNECT 使用 Basic 认证
 
@@ -31,6 +41,10 @@
 - [x] 配置模板
 
 ## 使用
+
+Web服务器是常见的需求，因此此镜像默认支持了Web服务器，只需要通过环境变量去控制即可。当然对于高级用户，可能想要定义自己的Web服务器，因此也支持通过`NGX_HTTP_WEB`环境变量去控制是否激活基础的Web服务器：
+
+- `NGX_HTTP_WEB <on|off>`：是否激活基础的Web服务器，默认值为`on`；如果设置为`off`，则不会激活基础的Web服务器，这时候下文中提到的HTTP和HTTPS相关的环境变量都不会生效。
 
 ### 部署 HTTP服务器
 

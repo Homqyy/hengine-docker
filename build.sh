@@ -99,6 +99,8 @@ pwd
             --with-ld-opt="$G_LD_OPT" $G_NGX_OPT \
             --with-openssl="$G_OPENSSL" \
             --with-openssl-opt="$G_OPENSSL_OPT" \
+            --with-http_sub_module \
+            --add-module=./modules/ngx_http_proxy_connect_module \
     && make && make install
 
 cd 
