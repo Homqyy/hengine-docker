@@ -2,9 +2,15 @@
 
 ## 版本说明
 
-**3.1（latest）**：
+**3.2（latest）**：
 
 - 参考：[hengine-docker](https://github.com/Homqyy/hengine-docker)
+- 特性：无
+- Bug 列表：
+    - stream无法使用配置模板功能
+
+**3.1**：
+
 - 特性：
     - 支持用`NGX_HTTP_WEB <on|off>`控制是否激活基础的HTTP服务，默认值为`on`；
 - Bug 列表：
@@ -39,6 +45,11 @@
 - [x] Lua
 - [x] 环境变量
 - [x] 配置模板
+
+## 开发
+
+1. 获取代码：`git clone https://github.com/Homqyy/hengine-docker`
+2. 获取子模块：`git submodule update --init --recursive`
 
 ## 使用
 

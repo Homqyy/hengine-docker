@@ -4,6 +4,9 @@ name: Build and push Docker image
 
 on:
   push:
+    branches:
+      - 'bug/*'
+      - 'feature/*'
     tags:
       - "*"
 
@@ -32,7 +35,7 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v5
         with:
-          push: true
+          push: ${{ startsWith(github.ref, 'refs/tags/') ? 'false' : 'true' }}
           tags: |
             homqyy/hengine:latest
             homqyy/hengine:${{ github.ref_name }}
