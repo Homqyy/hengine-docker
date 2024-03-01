@@ -38,6 +38,6 @@ jobs:
           push: ${{ startsWith(github.ref, 'refs/tags/') == true }}
           tags: |
             homqyy/hengine:latest
-            homqyy/hengine:${{ github.ref_name }}
+            ${{ startsWith(github.ref, 'refs/tags/') && format('homqyy/hengine:{0}', github.ref_name) }} 
           context: .
           file: docker/Dockerfile
