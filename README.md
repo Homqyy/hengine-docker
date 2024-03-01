@@ -67,7 +67,7 @@ version: '3.8'
 
 services:
   web:
-    image: homqyy/hengine:3.0
+    image: homqyy/hengine
     ports:
       - '80:80/tcp'
     environment:
@@ -88,7 +88,7 @@ version: '3.8'
 
 services:
   web:
-    image: homqyy/hengine:3.0
+    image: homqyy/hengine
     ports:
       - '443:443/tcp'
     environment:
@@ -175,7 +175,7 @@ version: '3.8'
 
 services:
   web:
-    image: homqyy/hengine:3.0
+    image: homqyy/hengine
     ports:
       - '443:443/tcp'
     environment:
@@ -213,7 +213,7 @@ If there are issues causing the hengine container to not run properly, you can d
 
     services:
       web:
-        image: homqyy/hengine:3.0
+        image: homqyy/hengine
         entrypoint: /sbin/init
         ...
     ```
@@ -231,11 +231,12 @@ version: '3.8'
 
 services:
   web:
-    image: homqyy/hengine:3.0
+    image: homqyy/hengine
     ports:
       - '443:443/tcp'
     environment:
       NGX_LOG_LEVEL: info
+      NGX_HTTP_WEB: on
       NGX_HTTP_LISTEN: '443 ssl'
       NGX_HTTP_SNI: on
       NGX_HTTP_SERVER_NAME: gm.dev.example.com
@@ -280,7 +281,7 @@ In this image, the configuration specified under the `http` block `{}` is placed
     ```yml
     services:
       web:
-        image: homqyy/hengine:3.0
+        image: homqyy/hengine
         ...
         volumes:
           - '/home/admin/my_server.conf:/usr/local/hengine/conf/http.conf.d/my_server.conf:ro'
@@ -310,7 +311,7 @@ But how is this considered a template? This is where environment variables come 
     ```yml
     services:
       web:
-        image: homqyy/hengine:3.0
+        image: homqyy/hengine
         ...
         environment:
           NGX_MY_LISTEN: 9090
