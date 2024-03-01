@@ -1,6 +1,6 @@
 # Hengine Docker
 
-For Chinese, please refer to [README-zh.md](README-zh.md)
+For Chinese, please refer to [README-zh.md](https://github.com/Homqyy/hengine-docker/blob/main/README-zh.md)
 
 ## Version Notes
 

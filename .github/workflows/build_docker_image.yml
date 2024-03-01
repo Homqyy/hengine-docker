@@ -41,3 +41,10 @@ jobs:
             ${{ startsWith(github.ref, 'refs/tags/') && format('homqyy/hengine:{0}', github.ref_name) }} 
           context: .
           file: docker/Dockerfile
+
+      - name: Docker Hub Description
+        uses: peter-evans/dockerhub-description@v4
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          repository: homqyy/hengine
