@@ -4,7 +4,7 @@ g_prefix=/usr/local/hengine
 g_hengine=$g_prefix/sbin/nginx
 g_conf=$g_prefix/conf
 g_http_conf=$g_conf/http.conf.d
-g_stream_conf=$g_conf/http.conf.d
+g_stream_conf=$g_conf/stream.conf.d
 
 export NGX_LOG_LEVEL=${NGX_LOG_LEVEL:-error}
 export NGX_HTTP_LISTEN=${NGX_HTTP_LISTEN:-80}

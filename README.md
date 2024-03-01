@@ -4,9 +4,15 @@ For Chinese, please refer to [README-zh.md](README-zh.md)
 
 ## Version Notes
 
-**3.1 (latest)**:
+**3.2 (latest)**:
 
 * Reference: hengine-docker: [https://github.com/Homqyy/hengine-docker](https://github.com/Homqyy/hengine-docker)
+* Features: None
+* Bug list：
+    * stream template is invalid
+
+**3.1**:
+
 * Features:
     * Supports controlling whether to enable the basic HTTP service using the `NGX_HTTP_WEB <on|off>` environment variable, the default value is `on`.
 * Bug list:
@@ -40,6 +46,11 @@ It supports the following features:
 - [x] Lua
 - [x] Environment Variables
 - [x] Configuration Templates
+
+## Development
+
+1. Download the source code: `git clone https://github.com/Homqyy/hengine-docker`
+2. Download submodules: `git submodule update --init --recursive`
 
 ## Usage
 

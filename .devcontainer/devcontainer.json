@@ -16,7 +16,10 @@
 				"Gruntfuggly.todo-tree",
 				"cschlosser.doxdocgen",
 				"cfgweb.vscode-perl",
-				"richterger.perl"
+				"richterger.perl",
+				"github.vscode-github-actions",
+				"GitHub.copilot",
+				"GitHub.copilot-chat"
 			]
 		}
 	},
