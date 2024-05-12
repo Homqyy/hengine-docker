@@ -185,7 +185,7 @@ services:
       NGX_HTTP_SSL_SIGN_KEY: certs/gm.dev.homqyy.cn/gm/privkey.pem
       NGX_HTTP_SSL_ENC_CERT: certs/gm.dev.homqyy.cn/gm/enc-chain.pem
       NGX_HTTP_SSL_ENC_KEY: certs/gm.dev.homqyy.cn/gm/enc-privkey.pem
-      NGX_HTTP_SSL_CIPHERS: ECC-SM2-SM4-CBC-SM3:ECDHE-SM2-SM4-CBC-SM3;
+      NGX_HTTP_SSL_CIPHERS: ECC-SM2-SM4-CBC-SM3:ECDHE-SM2-SM4-CBC-SM3
       NGX_HTTP_SSL_VERIFY_CLIENT: on
       NGX_HTTP_SSL_VERIFY_DEPTH: 3
       NGX_HTTP_SSL_CA: certs/ca/ca-all.pem.crt
